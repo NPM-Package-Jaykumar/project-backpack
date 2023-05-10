@@ -35,8 +35,6 @@ program
         console.log("Invalid repository option.");
         return;
       }
-
-      console.log(`Setting up ${message} into ${directory}...`);
       console.log(`Setting up ${message} into ${directory}...`);
       await exec(`rm -rf ${directory}`, (error, stdout, stderr) => {
         if (error) {
@@ -44,7 +42,6 @@ program
           return;
         }
         console.log(`Existing ${directory} directory cleared...`);
-        // Add any additional setup commands you need here
         exec(
           `git clone ${repositoryUrl} ${directory}`,
           (error, stdout, stderr) => {
@@ -54,7 +51,20 @@ program
             }
             console.log("New project setup successfully.");
             console.log("Enjoy coding...");
-            // Add any additional setup commands you need here
+            exec(`cd ${directory}`, (error, stdout, stderr) => {
+              if (error) {
+                console.error(`Directory Error: ${error.message}`);
+                return;
+              }
+              console.log(`cd ${directory}`);
+              exec(`rm -rf .files`, (error, stdout, stderr) => {
+                if (error) {
+                  console.error(`.files not found: ${error.message}`);
+                  return;
+                }
+                console.log(`.files removed`);
+              });
+            });
           }
         );
       });
