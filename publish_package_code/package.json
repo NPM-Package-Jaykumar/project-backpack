@@ -1,0 +1,32 @@
+{
+  "name": "project-backpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "uglifyjs -c -m -o publish_package_code/index.js index.js"
+  },
+  "keywords": [
+    "npm",
+    "theme",
+    "project",
+    "Template",
+    "Starter-Project",
+    "backpack",
+    "project-backpack",
+    "repository",
+    "react js",
+    "jkg",
+    "jaykumar-gohil"
+  ],
+  "author": "Gohil Jaykumar <jkgsk21@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^10.0.1",
+    "shelljs": "^0.8.5"
+  },
+  "bin": {
+    "project-backpack": "./index.js"
+  }
+}
