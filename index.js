@@ -23,6 +23,9 @@ program
         `
       );
     } else {
+      console.log(
+        `\nSupported Terminals:\n\n1) Gitbash terminal\n2) Visual Studio Code terminal\n\n`
+      );
       const directory = options.directory || ".";
       const repository = options.repository || ".";
       let repositoryUrl = "";
@@ -49,17 +52,16 @@ program
               console.error(`Error creating project: ${error.message}`);
               return;
             }
+            console.log(
+              `\nChecking duplicate folder if exist then overwriting it...`
+            );
             exec(`rm -rf ${directory}/.git`, (error, stdout, stderr) => {
               if (error) {
                 console.error(`Directory Error: ${error.message}`);
                 return;
               }
-              console.log(`Cleaning unwanted files...`);
+              console.log(`Successfully write files...`);
               console.log("New project setup successfully.");
-              console.log(`\n Run:"npm i && npm run dev"`);
-              console.log("Created by:");
-              console.log("Jaykumar Gohil");
-              console.log("Happy Codding...");
               /*console.log(`
                                        ______                __           __   __         
                                       / ____/_______  ____ _/ /____  ____/ /  / /_  __  __
@@ -84,13 +86,18 @@ program
                                     | | (_| |_) |_) \\/   (_ (_) (_| | | | (_| o o o 
                                             |   |   /                      _|                                                         
               `);*/
-
+              console.log(`\nAdding Next & Yarn globally for dependency...`);
               exec(`npm i -g next yarn`, (error, stdout, stderr) => {
                 if (error) {
                   console.error(`Directory Error: ${error.message}`);
                   return;
                 }
-                console.log(`Cleaning unwanted files...`);
+                console.log(`Successfully added Next & Yarn...`);
+
+                console.log(`\nRun:"npm i && npm run dev"`);
+                console.log("\n\nCreated by:");
+                console.log("Jaykumar Gohil");
+                console.log("Happy Codding...");
               });
             });
           }
