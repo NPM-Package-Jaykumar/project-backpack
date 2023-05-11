@@ -56,6 +56,7 @@ program
               }
               console.log(`Cleaning unwanted files...`);
               console.log("New project setup successfully.");
+              console.log(`\n Run:"npm i && npm run dev"`);
               console.log("Created by:");
               console.log("Jaykumar Gohil");
               console.log("Happy Codding...");
