@@ -11,7 +11,6 @@ const exec=require("shelljs")["exec"],program=require("commander");program.versi
 Supported Terminals:
 
 1) Gitbash terminal
-2) Visual Studio Code terminal
 
 `);const s=o.directory||".";o=o.repository||".";let t="",e="";"vuexy-nextjs-typescript"!==o?console.log("Invalid repository option."):(t="https://github.com/RN-T-org/R-N-T.git",e="nextjs-typescript project",console.log(`Setting up ${e} into ${s}...`),await exec("rm -rf "+s,(e,o,r)=>{e?console.error("Error deleting directory: "+e.message):(console.log(`Existing ${s} directory cleared...`),exec(`git clone ${t} `+s,(e,o,r)=>{e?console.error("Error creating project: "+e.message):(console.log(`
 Checking duplicate folder if exist then overwriting it...`),exec(`rm -rf ${s}/.git`,(e,o,r)=>{e?console.error("Directory Error: "+e.message):(console.log("Successfully write files..."),console.log("New project setup successfully."),console.log(`

@@ -23,9 +23,7 @@ program
         `
       );
     } else {
-      console.log(
-        `\nSupported Terminals:\n\n1) Gitbash terminal\n2) Visual Studio Code terminal\n\n`
-      );
+      console.log(`\nSupported Terminals:\n\n1) Gitbash terminal\n\n`);
       const directory = options.directory || ".";
       const repository = options.repository || ".";
       let repositoryUrl = "";
