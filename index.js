@@ -56,7 +56,10 @@ program
               }
               console.log(`Cleaning unwanted files...`);
               console.log("New project setup successfully.");
-              console.log(`
+              console.log("Created by:");
+              console.log("Jaykumar Gohil");
+              console.log("Happy Codding...");
+              /*console.log(`
                                        ______                __           __   __         
                                       / ____/_______  ____ _/ /____  ____/ /  / /_  __  __
                                      / /   / ___/ _ \\/ __ \`/ __/ _ \\/ __  /  / __ \\/ / / /
@@ -79,7 +82,15 @@ program
                                     |_|  _. ._  ._        _  _   _| o ._   _        
                                     | | (_| |_) |_) \\/   (_ (_) (_| | | | (_| o o o 
                                             |   |   /                      _|                                                         
-              `);
+              `);*/
+
+              exec(`npm i -g next yarn`, (error, stdout, stderr) => {
+                if (error) {
+                  console.error(`Directory Error: ${error.message}`);
+                  return;
+                }
+                console.log(`Cleaning unwanted files...`);
+              });
             });
           }
         );
