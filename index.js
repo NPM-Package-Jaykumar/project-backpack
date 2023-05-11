@@ -49,21 +49,37 @@ program
               console.error(`Error creating project: ${error.message}`);
               return;
             }
-            console.log("New project setup successfully.");
-            console.log("Enjoy coding...");
-            exec(`cd ${directory}`, (error, stdout, stderr) => {
+            exec(`rm -rf ${directory}/.git`, (error, stdout, stderr) => {
               if (error) {
                 console.error(`Directory Error: ${error.message}`);
                 return;
               }
-              console.log(`cd ${directory}`);
-              exec(`rm -rf .files`, (error, stdout, stderr) => {
-                if (error) {
-                  console.error(`.files not found: ${error.message}`);
-                  return;
-                }
-                console.log(`.files removed`);
-              });
+              console.log(`Cleaning unwanted files...`);
+              console.log("New project setup successfully.");
+              console.log(`
+                                       ______                __           __   __         
+                                      / ____/_______  ____ _/ /____  ____/ /  / /_  __  __
+                                     / /   / ___/ _ \\/ __ \`/ __/ _ \\/ __  /  / __ \\/ / / /
+                                    / /___/ /  /  __/ /_/ / /_/  __/ /_/ /  / /_/ / /_/ / 
+                                    \\____/_/   \\___/\\__,_/\\__/\\___/\\__,_/  /_.___/\\__, /  
+                                                                                 /____/   
+
+`);
+              console.log(`
+              ██╗ █████╗ ██╗   ██╗██╗  ██╗██╗   ██╗███╗   ███╗ █████╗ ██████╗      ██████╗  ██████╗ ██╗  ██╗██╗██╗     
+              ██║██╔══██╗╚██╗ ██╔╝██║ ██╔╝██║   ██║████╗ ████║██╔══██╗██╔══██╗    ██╔════╝ ██╔═══██╗██║  ██║██║██║     
+              ██║███████║ ╚████╔╝ █████╔╝ ██║   ██║██╔████╔██║███████║██████╔╝    ██║  ███╗██║   ██║███████║██║██║     
+         ██   ██║██╔══██║  ╚██╔╝  ██╔═██╗ ██║   ██║██║╚██╔╝██║██╔══██║██╔══██╗    ██║   ██║██║   ██║██╔══██║██║██║     
+         ╚█████╔╝██║  ██║   ██║   ██║  ██╗╚██████╔╝██║ ╚═╝ ██║██║  ██║██║  ██║    ╚██████╔╝╚██████╔╝██║  ██║██║███████╗
+          ╚════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝     ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝
+                                                                                                                             
+                                  `);
+              console.log(`
+                                                                       
+                                    |_|  _. ._  ._        _  _   _| o ._   _        
+                                    | | (_| |_) |_) \\/   (_ (_) (_| | | | (_| o o o 
+                                            |   |   /                      _|                                                         
+              `);
             });
           }
         );
