@@ -2,6 +2,7 @@
 
 const { exec } = require("shelljs");
 const program = require("commander");
+var clc = require("cli-color");
 
 program
   .version("1.0.0")
@@ -36,7 +37,7 @@ program
         console.log("Invalid repository option.");
         return;
       }
-      console.log(`Setting up ${message} into ${directory}...`);
+      console.log(clc.yellow(`Setting up ${message} into ${directory}...`));
       await exec(`rm -rf ${directory}`, (error, stdout, stderr) => {
         if (error) {
           console.error(`Error deleting directory: ${error.message}`);
@@ -51,7 +52,9 @@ program
               return;
             }
             console.log(
-              `\nChecking duplicate folder if exist then overwriting it...`
+              clc.yellow(
+                `\nChecking duplicate folder if exist then overwriting it...`
+              )
             );
             exec(`rm -rf ${directory}/.git`, (error, stdout, stderr) => {
               if (error) {
@@ -59,7 +62,7 @@ program
                 return;
               }
               console.log(`Successfully write files...`);
-              console.log("New project setup successfully.");
+              console.log(clc.green("New project setup successfully."));
               /*console.log(`
                                        ______                __           __   __         
                                       / ____/_______  ____ _/ /____  ____/ /  / /_  __  __
@@ -84,18 +87,29 @@ program
                                     | | (_| |_) |_) \\/   (_ (_) (_| | | | (_| o o o 
                                             |   |   /                      _|                                                         
               `);*/
-              console.log(`\nAdding Next & Yarn globally for dependency...`);
+              console.log(
+                clc.yellow(`\nAdding Yarn globally for dependency...`)
+              );
               exec(`npm i -g next yarn`, (error, stdout, stderr) => {
                 if (error) {
                   console.error(`Directory Error: ${error.message}`);
                   return;
                 }
-                console.log(`Successfully added Next & Yarn...`);
+                console.log(clc.green(`Successfully added Yarn globally...`));
 
-                console.log(`\nRun:"npm i && npm run dev"`);
-                console.log("\n\nCreated by:");
-                console.log("Jaykumar Gohil");
-                console.log("Happy Codding...");
+                console.log(clc.yellow(`\n-------------------------------- `));
+
+                console.log(
+                  clc.yellow(`\nRun: `) + clc.greenBright(`cd ${directory}`)
+                );
+                console.log(
+                  clc.yellow(`\nRun: `) +
+                    clc.greenBright(`yarn && yarn run dev`)
+                );
+                console.log(clc.yellow(`\n-------------------------------- `));
+
+                console.log("\n\nCreated by: " + clc.bgBlue("Jaykumar Gohil"));
+                console.log(clc.whiteBright("Happy Codding..."));
               });
             });
           }
